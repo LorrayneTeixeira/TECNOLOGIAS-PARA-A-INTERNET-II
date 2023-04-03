@@ -14,7 +14,33 @@
     <img class="imagen" src="Imagens/book.jpg">
     <div class="menu">
       <img class="escola-img" src="Imagens/escola.jpg">
-      
+      <div class="arrumar">
+        <?php
+        session_start();
+        $id = $_GET["id"];
+        ?>
+        <table>
+          <tr>
+            <td>Nome</td>
+            <td>RA</td>
+            <td>Curso</td>
+            <td>Excluir </td>
+          </tr>
+          <?php
+          foreach ($_SESSION["alunosc"] as $arra) {
+          ?>
+            <tr>
+              <td><?= $arra[0] ?></td>
+              <td><?= $arra[1] ?></td>
+              <td><?= $arra[2] ?></td>
+              <td><button>Excluir</button> </td>
+            </tr>
+
+          <?php
+          }
+          ?>
+        </table>
+      </div><!--arrumar-->
     </div><!--menu-->
     <div class="menu2">
       <form action="cadastro2-acoes.php" method="POST">
@@ -36,19 +62,22 @@
             <button type="submit">Cadastrar</button>
           </div><!--button-cadastro-->
           <div>
-            <?php 
-                if(isset($_GET["valid"]) && $_GET["valid"]==2 ){
-                  echo "RA já existente;";
-                }
+            <?php
+            if (isset($_GET["valid"]) && $_GET["valid"] == 2) {
+              echo "RA já existente;";
+            }
             ?>
-        </div>
+</body>
 
-        </div><!--alunoc-->
-       
+</html>
+</div>
 
-      </form>
-    </div><!--menu2-->
-  </div><!--menu-->
+</div><!--alunoc-->
+
+
+</form>
+</div><!--menu2-->
+</div><!--menu-->
 </body>
 
 </html>

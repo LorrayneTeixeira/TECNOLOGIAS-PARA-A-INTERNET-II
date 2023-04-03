@@ -28,3 +28,5 @@ if ($parar == false) {
 } else {
     header("Location: cadastro2.php?id=" . $cont);
 }
+
+?>
